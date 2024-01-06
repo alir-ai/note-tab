@@ -2,9 +2,10 @@ import { useState } from "react";
 import "./App.css";
 import AddNewNote from "./component/AddNewNote";
 import NoteList from "./component/NoteList";
+import NoteStatus from "./component/NoteStatus";
 function App() {
   const [notes, setNotes] = useState([]);
-  
+
   const handleDeleteNote = (id) => {
     // const filteredNotes = notes.filter((n) => n.id !== id);
     // setNotes(filteredNotes)
@@ -31,6 +32,7 @@ function App() {
       <div className="note-app">
         <AddNewNote setNotes={setNotes} />
         <div className="note-container">
+          <NoteStatus notes={notes} />
           <NoteList
             notes={notes}
             onDelete={handleDeleteNote}
