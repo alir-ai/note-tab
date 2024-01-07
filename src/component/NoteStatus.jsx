@@ -1,11 +1,16 @@
+import ToastMessage from "./ToastMessage";
+
 function NoteStatus({ notes }) {
   const allNotes = notes.length;
   const completedNotes = notes.filter((n) => n.completed).length;
   const openNotes = allNotes - completedNotes;
 
-  if (!allNotes) return <h2>No Notes has been already added.</h2>
-
-
+  if (!allNotes)
+    return (
+      <ToastMessage>
+        ☹️<span>NO Notes has been already added.</span><span>&times;</span>
+      </ToastMessage>
+    );
 
   return (
     <ul className="note-status">
